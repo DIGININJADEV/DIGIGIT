@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Calculator</title>
+<link rel='stylesheet' href='styles.css' type='text/css'>
+<script src="calculator.js"></script>
+</head>
+<body>
+<div id="wrapper">
+  <div id='calculatorBody'>
+    <div id='displaySection'>
+      <input type='text' id="display" name='display'  value='0.'>
+    </div>
+    
+    <div id='buttonRow1' class='buttonRow'>
+        <input type='button' id='clear' name='clear' value='C' class='numberButton' onclick="clearDisplay()">
+        <input type='button' id='clearErr' name='clearErr' value='CE' class='numberButton' onclick="clearDisplay()">
+        <input type='button' id='sign' name='sign' value='+/-' class='numberButton'>
+        <input type='button' id='close' name='close' value='X' onclick="turnOff()">
+    </div>
+    <div id='buttonRow2' class='buttonRow'>
+        <input type='button' id='num7' name='num7' value='7' class='numberButton' onclick="numPress(7)">
+        <input type='button' id='num8' name='num8' value='8' class='numberButton' onclick="numPress(8)">
+        <input type='button' id='num9' name='num9' value='9' class='numberButton' onclick="numPress(9)">
+        <input type='button' id='opMult' name='opMult' value='*' class='numberButton' onclick="arithmetic('*')">
+    </div>
+    <div id='buttonRow3' class='buttonRow'>
+        <input type='button' id='num4' name='num4' value='4' class='numberButton' onclick="numPress(4)">
+        <input type='button' id='num5' name='num5' value='5' class='numberButton' onclick="numPress(5)">
+        <input type='button' id='num6' name='num6' value='6' class='numberButton' onclick="numPress(6)">
+        <input type='button' id='opDiv' name='opDiv' value='/' class='numberButton' onclick="arithmetic('/')">
+    </div>
+    <div id='buttonRow4' class='buttonRow'>
+        <input type='button' id='num1' name='num1' value='1' class='numberButton' onclick="numPress(1)">
+        <input type='button' id='num2' name='num2' value='2' class='numberButton' onclick="numPress(2)">
+        <input type='button' id='num3' name='num3' value='3' class='numberButton' onclick="numPress(3)">
+        <input type='button' id='opPlus' name='opPlus' value='+' class='numberButton' onclick="arithmetic('+')">
+    </div>
+    <div id='buttonRow5' class='buttonRow' >
+        <input type='button' id='num0' name='num0' value='0' class='numberButton' onclick="numPress(0)">
+        <input type='button' id='opPoint' name='opPoint' value='.' class='numberButton' onclick="numPress('.')">
+        <input type='button' id='opEqual' name='opEqual' value='=' class='numberButton' onclick="calculate();">
+        <input type='button' id='opMinus' name='opMinus' value='-' class='numberButton' onclick="arithmetic('-')">
+    </div>
+  </div>
+</div>
+</body>
+</html>

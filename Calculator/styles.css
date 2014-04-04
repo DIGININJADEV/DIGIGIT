@@ -1,0 +1,94 @@
+/* Default Dimensions for all block elements */
+block {
+width: 100%;
+height: 100%;
+}
+
+/* Wrapper DIV for all child content */
+
+#wrapper{
+    position: relative;
+    width: 230px;
+    height: 310px;
+    margin: 0 auto;
+    top: 50px;
+    
+}
+
+/* Calculator Body DIV Style */
+#calculatorBody {
+width: 200px;
+height: 300px;
+border-style:  groove ridge ridge groove ;
+border-color:#424242;
+border-width: 10px;
+border-radius:15px;
+background-color: #333333;
+text-align: center;
+}
+
+/* Numeric Display Panel */
+#displaySection {
+width : 100%;
+height : 19%;
+background-color : #aaaaaa;
+margin : 2px;
+}
+
+/* Style for all button rows */
+.buttonRow {
+width : 100%;
+height: 15.5%;
+background-color : #777777;
+margin : 2px;
+}
+
+#buttonRow5{
+    border-bottom-right-radius: 5px; 
+    border-bottom-left-radius: 5px; 
+}
+
+/* Display section input element */
+#displaySection input {
+width : 93%;
+height : 50px;
+background-color : #ffffff;
+border-width: 2px;
+border-style: inset;
+border-color: #19070B;
+margin : 1px;
+padding-right: 10px;
+text-align : right;
+font-size:  24px;
+font-weight: bold;
+}
+
+/* Number Button */
+.numberButton {
+width : 20%;
+height : 80%;
+background-color : #000000;
+float : left;
+margin-top: 2.5%;
+margin-left: 4%;
+color: white;
+font-size: 0.8em;
+font-family:"Lucida Console", Verdana, Arial;
+}
+
+.numberButton:hover{
+    background-color: #773333;
+}
+
+/* Close Button */
+#close {
+float : right;
+margin-top: 2.5%;
+margin-right: 4%;
+background-color: #cc0000;
+width: 20%;
+height: 78%;
+font-size: 0.8em;
+font-weight: bold;
+font-family:"Lucida Console", Verdana, Arial;
+}
