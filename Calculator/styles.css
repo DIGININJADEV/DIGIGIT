@@ -59,8 +59,18 @@ border-color: #19070B;
 margin : 1px;
 padding-right: 10px;
 text-align : right;
-font-size:  24px;
+font-size:  1.5em;
 font-weight: bold;
+}
+
+#operator{
+    position:  absolute;
+    margin: 4%;
+    margin-left: 4%;
+    color:#6E6E6E;
+    font-size: 2em;
+    font-weight: bold;
+    
 }
 
 /* Number Button */

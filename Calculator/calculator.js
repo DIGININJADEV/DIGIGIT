@@ -36,6 +36,7 @@ function calculate(num)
     displayInput.value = roundedResult;
     bOperatorPressed = false;
     bOperatorFinished = false;
+    document.getElementById("operator").innerHTML = '=';
     keyPressCount = 0;
 }
 
@@ -43,12 +44,14 @@ function calculate(num)
 
 function clearDisplay()
 {
-  var displayInput = document.getElementById("display").value = '0.';   
+  var displayInput = document.getElementById("display").value = '0.';
+  document.getElementById("operator").innerHTML = '';
 }
 
 function turnOff()
 {
-  var displayInput = document.getElementById("display").value = '';    
+  var displayInput = document.getElementById("display").value = '';
+  document.getElementById("operator").innerHTML = '';
 }
 
 function numPress(num)
@@ -77,6 +80,7 @@ function arithmetic(type)
     bOperatorPressed = true;
     bOperatorFinished = false;
     mathOperator = type;
+    document.getElementById("operator").innerHTML = type;
     keyPressCount = 0;
     var CurrentValue = document.getElementById("display").value;
     input = CurrentValue;
