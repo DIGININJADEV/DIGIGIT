@@ -52,6 +52,14 @@ function turnOff()
 {
   var displayInput = document.getElementById("display").value = '';
   document.getElementById("operator").innerHTML = '';
+  var buttonValue = document.getElementById("close").value;
+  if(buttonValue == 'OFF')
+  {
+      document.getElementById("close").value = 'ON';
+  }else{
+      document.getElementById("close").value = 'OFF';
+      displayInput = document.getElementById("display").value = '0.';
+  }
 }
 
 function numPress(num)
