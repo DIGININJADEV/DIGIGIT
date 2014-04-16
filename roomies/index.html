@@ -17,26 +17,89 @@
 	var arrBoysObj = [];
 	var arrGirls = [];
 	
+	var matches = [];
+		
 	objBoys = populateBoys(arrBoys);
 	//arrGirls = populateGirls(arrGirls);
 	
 	
 	console.log(objBoys);
-	
-	for(i=0;i<objBoys.length;i++){
-	  for(property in objBoys[i]){
-	    console.log(objBoys[i][property]);
-	  }
+
+	for(i=0;i < objBoys.length;i++){
+	  var self = objBoys[i].id;
+		var numMatches = 0;
+		console.log('List of friends for: [' + self + ']');
+		console.log(objBoys[i].list);
+		for(x=0;x<4;x++){
+			var currentID = objBoys[i].list[x];
+			console.log(currentID);
+			var result = findMatch(currentID, self, objBoys[currentID].list);
+			numMatches += result;
+		}
+		
+		if(numMatches > 0)
+			objBoys[i].matches = numMatches;
+		console.log(objBoys[i]);
+		console.log('---------');
 	}
+	
+	var uniqueMatches = [];
+	$.each(matches, function(i, el){
+			if($.inArray(el, uniqueMatches) === -1) uniqueMatches.push(el);
+	});
+	console.log(uniqueMatches);
+		
+	var noMatches = arrBoys;
+	for(i=0;i<uniqueMatches.length;i++){
+		var index = noMatches.indexOf(''+uniqueMatches[i]+'');
+		noMatches.splice(index, 1);
+	}
+	console.log(noMatches);
+	
+	for(i=0;i<noMatches.length;i++){
+		var ID = noMatches[i];
+		console.log('[ID:' + ID + ']');
+		var firstChoice = objBoys[ID].list[0];
+		var numFirstChoiceMatches = objBoys[firstChoice].matches;
+		//console.log('First Choice has ' + numFirstChoiceMatches + ' matche(s)');
+		//console.log('First Choice Match List: ' + objBoys[firstChoice].list);
+		if(numFirstChoiceMatches < 4)
+			objBoys[firstChoice].list[3] = ID;
+		console.log('---- [' + firstChoice + ']New First Choice Match List: ' + objBoys[firstChoice].list);
+	}
+		
+		console.log('-----------------------------');
+	
+	// Re-Cycle through list and make sure each student has at least one match
+	for(i=0;i < objBoys.length;i++){
+	  var self = objBoys[i].id;
+		var numMatches = 0;
+		for(x=0;x<4;x++){
+			var currentID = objBoys[i].list[x];
+			var result = findMatch(currentID, self, objBoys[currentID].list);
+			numMatches += result;
+		}
+		
+		console.log('[ID:' + self + '] Matches: ' + numMatches);
+		console.log(objBoys[i].list);
+		console.log('---------');
+	}
+		
+	/*	
+	for(i=0;i<objBoys.length;i++){
+		console.log('[' + objBoys[i].id + '] ' + objBoys[i].list + ' {matches: ' + objBoys[i].matches + '}');	
+	}
+	*/
 	
 	
 	
 	function populateBoys(arrBoys){
-	  for(i=0;i<=31;i++){
+	  for(i=0;i<=30;i++){
 		var objStudent = {};
 	    arrBoys.push(''+i+'');
 		objStudent.id = i;
 		objStudent.list = "";
+		objStudent.matches = 0;
 		arrBoysObj.push(objStudent);
 	  }	  
 		
@@ -68,7 +131,7 @@
 		  var randomStudent = Math.floor(Math.random() * (arrCleanList.length - 0 + 1)) + 0;
 		  var index = arrCleanList.indexOf(''+randomStudent+'');
 		  
-			if(index == -1){
+			if(index === -1){
 				//console.error(randomStudent + ' Not FOUND');
 				randomStudent = Math.floor(Math.random() * (arrCleanList.length - 0 + 1)) + 0;
 				index = arrCleanList.indexOf(''+randomStudent+'');
@@ -84,6 +147,19 @@
 			//console.log('--------------');
 		
 		return arrRoomiesList;
+	}
+	
+	function findMatch(currentID, self, currentIDList){
+		//console.log('checking for match between: ' + currentID + ' and ' + self + ' in: ' + currentIDList);
+		var index = currentIDList.indexOf(''+self+'');
+		if(index !== -1){
+			//console.log('[match between:' + currentID + ' and myself]');
+			matches.push(self);
+			return 1;
+		}else{
+			return 0;	
+		}
+		
 	}
 	
 	
