@@ -20,6 +20,7 @@
 	objBoys = populateBoys(arrBoys);
 	//arrGirls = populateGirls(arrGirls);
 	
+	
 	console.log(objBoys);
 	
 	for(i=0;i<objBoys.length;i++){
@@ -65,9 +66,18 @@
 	    
 		for(var i=0;i<4;i++){
 		  var randomStudent = Math.floor(Math.random() * (arrCleanList.length - 0 + 1)) + 0;
-		  //console.log('RandomStudent:' + randomStudent);
 		  var index = arrCleanList.indexOf(''+randomStudent+'');
-		  arrCleanList.splice(index,1);
+		  
+			if(index == -1){
+				//console.error(randomStudent + ' Not FOUND');
+				randomStudent = Math.floor(Math.random() * (arrCleanList.length - 0 + 1)) + 0;
+				index = arrCleanList.indexOf(''+randomStudent+'');
+				//console.log('RandomStudent:' + randomStudent);
+			}else{
+				//console.log('RandomStudent:' + randomStudent);
+			}
+			
+			arrCleanList.splice(index,1);
 		  arrRoomiesList.push(''+randomStudent+'');
 		}
 		
